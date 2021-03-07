@@ -82,6 +82,11 @@ expect -re $prompt {
     send "exit\r"
 }
 
+# enable eval license
+expect -re $prompt {
+    send "license boot level network-premier addon dna-premier\r"
+}
+
 # enable netconf
 expect -re $prompt {
     send "netconf-yang\r"
@@ -95,6 +100,6 @@ send "\r"
 expect -re $prompt
 
 # allow time for save to happen
-sleep 30
+sleep 45
 send "\r"
 expect -re $prompt
