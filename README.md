@@ -23,7 +23,7 @@ A procedure for creating a Cisco Catalyst 8000V Vagrant box for the [libvirt](ht
 <pre>
 $ <b>which git python ansible libvirtd virsh qemu-system-x86_64 expect telnet vagrant</b>
 $ <b>vagrant plugin list</b>
-vagrant-libvirt (0.3.0, global)
+vagrant-libvirt (0.4.0, global)
 </pre>
 
 1\. Log in and download the Cisco Catalyst 8000V Edge Software software from your [Cisco](https://software.cisco.com/download/home/286327102/type) account. Save the file to your `Downloads` directory.

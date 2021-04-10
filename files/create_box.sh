@@ -118,9 +118,9 @@ Vagrant.configure("2") do |config|
     domain.cpus = 1
     domain.features = ['acpi']
     domain.memory = 4096
-    domain.volume_cache = "unsafe"
-    domain.nic_model_type = "virtio"
-    domain.graphics_type = "none"
+    domain.disk_driver :cache => 'none'
+    domain.nic_model_type = 'virtio'
+    domain.graphics_type = 'none'
   end
 end
 EOF
