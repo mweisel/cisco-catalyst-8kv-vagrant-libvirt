@@ -13,8 +13,10 @@ A procedure for creating a Cisco Catalyst 8000V Vagrant box for the [libvirt](ht
   * [QEMU](https://www.qemu.org)
   * [Expect](https://en.wikipedia.org/wiki/Expect)
   * [Telnet](https://en.wikipedia.org/wiki/Telnet)
-  * [Vagrant](https://www.vagrantup.com) <= 2.2.9
+  * [Vagrant](https://www.vagrantup.com) >= 2.2.10
   * [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt)
+
+> Vagrant version **2.2.16** introduced a bug that *breaks* SSH connectivity - [#12344](https://github.com/hashicorp/vagrant/issues/12344)
 
 ## Steps
 
@@ -23,7 +25,7 @@ A procedure for creating a Cisco Catalyst 8000V Vagrant box for the [libvirt](ht
 <pre>
 $ <b>which git python ansible libvirtd virsh qemu-system-x86_64 expect telnet vagrant</b>
 $ <b>vagrant plugin list</b>
-vagrant-libvirt (0.4.0, global)
+vagrant-libvirt (0.5.1, global)
 </pre>
 
 1\. Log in and download the Cisco Catalyst 8000V Edge Software software from your [Cisco](https://software.cisco.com/download/home/286327102/type) account. Save the file to your `Downloads` directory.
