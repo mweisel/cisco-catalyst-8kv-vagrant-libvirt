@@ -100,6 +100,6 @@ send "\r"
 expect -re $prompt
 
 # allow time for save to happen
-sleep 45
+sleep 60
 send "\r"
 expect -re $prompt
