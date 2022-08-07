@@ -4,8 +4,16 @@ log_file -noappend "~/cat8kv-console.explog"
 
 spawn telnet 127.0.0.1 52099
 
-# marker to start config 
-expect "SYS-6-BOOTTIME"
+# disable setup command facility
+expect "initial configuration dialog"
+send "no\r"
+expect "Enter enable secret"
+send "Vagrant0wn3d!\r"
+expect "Confirm enable secret"
+send "Vagrant0wn3d!\r"
+expect "Enter your selection"
+send "0\r"
+expect "Call-home is enabled"
 send "\r"
 
 # enter privileged exec mode

@@ -13,7 +13,7 @@ A procedure for creating a Cisco Catalyst 8000V Vagrant box for the [libvirt](ht
   * [QEMU](https://www.qemu.org)
   * [Expect](https://en.wikipedia.org/wiki/Expect)
   * [Telnet](https://en.wikipedia.org/wiki/Telnet)
-  * [Vagrant](https://www.vagrantup.com) >= 2.2.10, != 2.2.16
+  * [Vagrant](https://www.vagrantup.com) >= 2.2.19
   * [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt)
 
 ## Steps
@@ -23,15 +23,15 @@ A procedure for creating a Cisco Catalyst 8000V Vagrant box for the [libvirt](ht
 <pre>
 $ <b>which git python ansible libvirtd virsh qemu-system-x86_64 expect telnet vagrant</b>
 $ <b>vagrant plugin list</b>
-vagrant-libvirt (0.6.2, global)
+vagrant-libvirt (0.9.0, global)
 </pre>
 
-1\. Log in and download the Cisco Catalyst 8000V Edge Software software from your [Cisco](https://software.cisco.com/download/home/286327102/type) account. Save the file to your `Downloads` directory.
+1\. Log in and download the Cisco Catalyst 8000V Edge Software software (Cupertino-17.8.1a or later) from your [Cisco](https://software.cisco.com/download/home/286327102/type) account. Save the file to your `Downloads` directory.
 
 2\. Copy (and rename) the disk image file to the `/var/lib/libvirt/images` directory.
 
 <pre>
-$ <b>sudo cp $HOME/Downloads/c8000v-universalk9_8G_serial.17.06.01a.qcow2 /var/lib/libvirt/images/cisco-cat8kv.qcow2</b>
+$ <b>sudo cp $HOME/Downloads/c8000v-universalk9_8G_serial.17.08.01a.qcow2 /var/lib/libvirt/images/cisco-cat8kv.qcow2</b>
 </pre>
 
 3\. Modify the file ownership and permissions. Note the owner may differ between Linux distributions.
@@ -79,7 +79,7 @@ $ <b>ansible-playbook main.yml</b>
 8\. Copy (and rename) the Vagrant box artifact to the `boxes` directory.
 
 <pre>
-$ <b>cp cisco-cat8kv.box $HOME/boxes/cisco-cat8000v-17.06.01a.box</b>
+$ <b>cp cisco-cat8kv.box $HOME/boxes/cisco-cat8000v-17.08.01a.box</b>
 </pre>
 
 9\. Copy the box metadata file to the `boxes` directory.
@@ -113,17 +113,17 @@ $ <b>awk '/VER/{gsub(/^ */,"");print}' cisco-cat8000v.json</b>
 "version": "<b>VER</b>",
 "url": "file:///home/marc/boxes/cisco-cat8000v-<b>VER</b>.box"
 
-$ <b>sed -i 's/VER/17.06.01a/g' cisco-cat8000v.json</b>
+$ <b>sed -i 's/VER/17.08.01a/g' cisco-cat8000v.json</b>
 
 $ <b>awk '/\&lt;version\&gt;|url/{gsub(/^ */,"");print}' cisco-cat8000v.json</b>
-"version": "<b>17.06.01a</b>",
-"url": "file:///home/marc/boxes/cisco-cat8000v-<b>17.06.01a</b>.box"
+"version": "<b>17.08.01a</b>",
+"url": "file:///home/marc/boxes/cisco-cat8000v-<b>17.08.01a</b>.box"
 </pre>
 
 13\. Add the Vagrant box to the local inventory.
 
 <pre>
-$ <b>vagrant box add --box-version 17.06.01a cisco-cat8000v.json</b>
+$ <b>vagrant box add --box-version 17.08.01a cisco-cat8000v.json</b>
 </pre>
 
 ## Debug
