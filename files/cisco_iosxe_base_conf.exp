@@ -25,7 +25,7 @@ expect -re $prompt
 send "configure terminal\r"
 expect -re $prompt
 
-# create the vagrant user 
+# create the vagrant user
 send "username vagrant privilege 15 secret vagrant\r"
 
 # enable aaa and define aaa method lists
@@ -63,14 +63,15 @@ expect -re $prompt {
 
 # configure the management interface
 expect -re $prompt {
-    send "vrf definition Mgmt-intf\r"
+    send "vrf definition MGMT\r"
     send "address-family ipv4\r"
     send "exit-address-family\r"
     send "exit\r"
     send "interface GigabitEthernet1\r"
     send "shutdown\r"
-    send "vrf forwarding Mgmt-intf\r"
-    send "ip address dhcp\r"
+    send "vrf forwarding MGMT\r"
+    send "description vagrant-management\r"
+    send "ip address dhcp client-id GigabitEthernet1\r"
     send "no cdp enable\r"
     send "no shutdown\r"
     send "exit\r"

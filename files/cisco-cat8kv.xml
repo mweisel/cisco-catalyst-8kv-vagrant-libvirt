@@ -6,9 +6,6 @@
     <type arch='x86_64'>hvm</type>
     <boot dev='hd'/>
   </os>
-  <features>
-    <acpi/>
-  </features>
   <cpu mode='host-model' check='partial'/>
   <clock offset='utc'>
     <timer name='rtc' tickpolicy='catchup'/>
@@ -31,7 +28,7 @@
     </disk>
     <controller type='pci' index='0' model='pci-root'/>
     <interface type='network'>
-      <source network='vagrant-libvirt'/>
+      <source network='default'/>
       <model type='virtio'/>
     </interface>
     <serial type='tcp'>
@@ -50,4 +47,3 @@
     <input type='keyboard' bus='ps2'/>
   </devices>
 </domain>
-
