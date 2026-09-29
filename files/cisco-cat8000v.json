@@ -3,11 +3,11 @@
   "description": "This box contains the Cisco Catalyst 8000V Router.",
   "versions": [
     {
-      "version": "17.16.01a",
+      "version": "17.18.02",
       "providers": [
         {
           "name": "libvirt",
-          "url": "file://HOME/boxes/cisco-cat8000v-17.16.01a.box",
+          "url": "file://HOME/boxes/cisco-cat8000v-17.18.02.box",
           "architecture": "amd64",
           "default_architecture": true
         }

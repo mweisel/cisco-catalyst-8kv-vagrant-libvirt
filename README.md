@@ -1,4 +1,4 @@
-![Vagrant](https://img.shields.io/badge/vagrant%20-%231563FF.svg?&style=for-the-badge&logo=vagrant&logoColor=white) ![netlab](https://img.shields.io/badge/netlab-d26400?style=for-the-badge)
+![Vagrant](https://img.shields.io/badge/vagrant%20-%231563FF.svg?&style=for-the-badge&logo=vagrant&logoColor=white)
 
 # Cisco Catalyst 8000V Vagrant box
 
@@ -29,11 +29,11 @@ which git uv unzip libvirtd virsh qemu-system-x86_64 expect telnet vagrant
 vagrant plugin list
 ```
 
-1\. Point your web browser to the [CML Software Download](https://software.cisco.com/download/home/286193282/type/286326381/release/2.9.0) page.
+1\. Point your web browser to the [CML Software Download](https://software.cisco.com/download/home/286193282/type/286326381/release/2.10.0) page.
 
-2\. Click the **Download** icon for the **Cisco Modeling Labs reference platform ISO file (June 2025)**.
+2\. Click the **Download** icon for the **Cisco Modeling Labs reference platform ISO file (April 2026)**.
 
-3\. Save the `refplat-20250616-fcs-iso.zip` file to your **Downloads** folder.
+3\. Save the `refplat-20260409-fcs-iso.zip` file to your **Downloads** folder.
 
 4\. Open your favorite terminal emulator, and change to the `Downloads` directory.
 
@@ -41,22 +41,22 @@ vagrant plugin list
 cd ~/Downloads
 ```
 
-5\. Create the `cml29-refplat` directory.
+5\. Create the `cml210-refplat` directory.
 
 ```
-mkdir -p cml29-refplat
+mkdir -p cml210-refplat
 ```
 
-6\. Uncompress the `refplat-20250616-fcs-iso.zip` file into the `cml29-refplat`directory.
+6\. Uncompress the `refplat-20260409-fcs-iso.zip` file into the `cml210-refplat`directory.
 
 ```
-unzip refplat-20250616-fcs-iso.zip -d cml29-refplat
+unzip refplat-20260409-fcs-iso.zip -d cml210-refplat
 ```
 
-7\. Change to the `cml29-refplat` directory.
+7\. Change to the `cml210-refplat` directory.
 
 ```
-cd cml29-refplat
+cd cml210-refplat
 ```
 
 8\. Create a mount point directory.
@@ -68,13 +68,13 @@ sudo mkdir -p /mnt/iso
 9\. Mount the ISO file.
 
 ```
-sudo mount -o loop refplat-20250616-fcs.iso /mnt/iso
+sudo mount -o loop refplat-20260409-fcs.iso /mnt/iso
 ```
 
 10\. Copy (and rename) the disk image file to the `/var/lib/libvirt/images` directory.
 
 ```
-sudo cp /mnt/iso/virl-base-images/cat8000v-17-16-01a/c8000v-universalk9_8G_serial.17.16.01a.qcow2 /var/lib/libvirt/images/cisco-cat8kv.qcow2
+sudo cp /mnt/iso/virl-base-images/cat8000v-17-18-02/c8000v-universalk9_8G_serial.17.18.02.qcow2 /var/lib/libvirt/images/cisco-cat8kv.qcow2
 ```
 
 11\. Unmount the ISO file.
@@ -130,7 +130,7 @@ uv run ansible-playbook main.yml
 19\. Copy (and rename) the Vagrant box artifact to the `boxes` directory.
 
 ```
-cp cisco-cat8kv.box ~/boxes/cisco-cat8000v-17.16.01a.box
+cp cisco-cat8kv.box ~/boxes/cisco-cat8000v-17.18.02.box
 ```
 
 20\. Copy the box metadata file to the `boxes` directory.
@@ -158,7 +158,7 @@ awk '/url/{gsub(/^ */,"");print}' cisco-cat8000v.json
 output:
 
 <pre>
-"url": "file://<b>/home/marc</b>/boxes/cisco-cat8000v-17.16.01a.box"
+"url": "file://<b>/home/marc</b>/boxes/cisco-cat8000v-17.18.02.box"
 </pre>
 
 23\. Add the Vagrant box to the local inventory.
